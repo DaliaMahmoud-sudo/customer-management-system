@@ -113,6 +113,7 @@ http://localhost:8080
 | POST | /customers | Create customer |
 | PUT | /customers/{id} | Update customer |
 | DELETE | /customers/{id} | Delete customer |
+| GET | /customers/paginated?page=0&size=5 | Get paginated customers |
 
 ---
 
@@ -127,10 +128,32 @@ Examples:
 
 ---
 
+
+# Pagination
+
+The backend supports pagination using Spring Data JPA Pageable.
+
+Example:
+
+```text
+GET /customers/paginated?page=0&size=5
+```
+
+This returns paginated customer data including:
+- current page
+- page size
+- total pages
+- total elements
+
+---
+
+
 # Bonus Features
 
 - Real-time filtering/search
 - Loading indicator
+- Pagination support
 - Confirmation dialogs
 - Error handling
 - Improved UI
+- Layered architecture (Controller → Service → Repository)

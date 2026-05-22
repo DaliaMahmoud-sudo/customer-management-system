@@ -1,9 +1,13 @@
 package com.example.customer_management.service;
 
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import com.example.customer_management.entity.Customer;
 import com.example.customer_management.repository.CustomerRepository;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -56,4 +60,22 @@ public class CustomerService {
 
         customerRepository.delete(customer);
     }
+
+       
+    // PAGINATION
+    
+
+   public Page<Customer> getCustomersWithPagination(
+        int page,
+        int size
+) {
+
+    Pageable pageable = PageRequest.of(
+            page,
+            size,
+            Sort.by("id").descending()
+    );
+
+    return customerRepository.findAll(pageable);
+}
 }
