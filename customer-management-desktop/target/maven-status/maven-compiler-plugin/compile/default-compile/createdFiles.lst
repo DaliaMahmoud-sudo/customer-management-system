@@ -1,0 +1,6 @@
+com\example\model\Customer.class
+com\example\Main.class
+com\example\service\CustomerService.class
+com\example\ui\MainFrame$1.class
+com\example\service\CustomerService$1.class
+com\example\ui\MainFrame.class
